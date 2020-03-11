@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ECO_STICKERModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="EcoSticker">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="VCId" Type="nvarchar" MaxLength="50" />
+    <Property Name="CarId" Type="nvarchar" MaxLength="50" />
+    <Property Name="Brand" Type="nvarchar" MaxLength="50" />
+    <Property Name="VINNO" Type="nvarchar" MaxLength="50" />
+    <Property Name="Model" Type="nvarchar" MaxLength="50" />
+    <Property Name="Grade" Type="nvarchar" MaxLength="50" />
+    <Property Name="CompanyInfo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Img_Thumnail" Type="nvarchar" MaxLength="50" />
+    <Property Name="Img_Picture" Type="nvarchar" MaxLength="50" />
+    <Property Name="Stk_Picture" Type="nvarchar" MaxLength="50" />
+    <Property Name="Stk_Pdf" Type="nvarchar" MaxLength="50" />
+    <Property Name="Privatekey" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="ModifyDate" Type="datetime" />
+    <Property Name="ModifyBy" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Log_Print">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="VCId" Type="nvarchar" MaxLength="50" />
+    <Property Name="PrinterName" Type="nvarchar" MaxLength="50" />
+    <Property Name="PrintBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="VINNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="ConfirmBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="PrintDate" Type="datetime" />
+    <Property Name="Remark" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Mapping_RoleUser">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Master_Printer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="2000" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="ModifyBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="ModifyDate" Type="datetime" />
+    <Property Name="isDefault" Type="bit" />
+  </EntityType>
+  <EntityType Name="Master_Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="ModifyBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="ModifyDate" Type="date" />
+  </EntityType>
+  <EntityType Name="Master_User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Username" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+    <Property Name="ConfirmKey" Type="nvarchar" MaxLength="4" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="MidifyBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="ModifyDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Master_VC">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="VCNO" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Master_VINNO">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="VCId" Type="nvarchar" MaxLength="50" />
+    <Property Name="VINNO" Type="nvarchar" MaxLength="50" />
+    <Property Name="PrintCount" Type="int" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="StickerRef" Type="nvarchar" MaxLength="600" />
+    <Property Name="StorageMethod" Type="nvarchar(max)" />
+    <Property Name="CreateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Sys_Config">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Value" Type="nvarchar" MaxLength="2000" />
+    <Property Name="IsSystem" Type="bit" />
+    <Property Name="Description" Type="nvarchar" MaxLength="2000" />
+  </EntityType>
+  <EntityType Name="Sys_FileAttach">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="RefId" Type="nvarchar" MaxLength="50" />
+    <Property Name="FileData" Type="text" />
+    <Property Name="FileDescription" Type="nvarchar(max)" />
+    <Property Name="FileName" Type="nvarchar(max)" />
+    <Property Name="IsTemp" Type="bit" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="ModifyBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="ModifyDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Transaction_Log">
+    <Key>
+      <PropertyRef Name="LogId" />
+    </Key>
+    <Property Name="LogId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FileProcessName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="XMLContent" Type="nvarchar(max)" />
+    <Property Name="ProcessDate" Type="datetime" Nullable="false" />
+    <Property Name="ConsoleMsg" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" />
+  </EntityType>
+  <Function Name="SP_getTransaction_Log" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="rVIN" Type="varchar" Mode="In" />
+    <Parameter Name="rDateFrom" Type="varchar" Mode="In" />
+    <Parameter Name="rDateTo" Type="varchar" Mode="In" />
+    <Parameter Name="rStatus" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="ECO_STICKERModelStoreContainer">
+    <EntitySet Name="EcoSticker" EntityType="Self.EcoSticker" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Log_Print" EntityType="Self.Log_Print" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Mapping_RoleUser" EntityType="Self.Mapping_RoleUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Master_Printer" EntityType="Self.Master_Printer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Master_Role" EntityType="Self.Master_Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Master_User" EntityType="Self.Master_User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Master_VC" EntityType="Self.Master_VC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Master_VINNO" EntityType="Self.Master_VINNO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sys_Config" EntityType="Self.Sys_Config" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sys_FileAttach" EntityType="Self.Sys_FileAttach" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Transaction_Log" EntityType="Self.Transaction_Log" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

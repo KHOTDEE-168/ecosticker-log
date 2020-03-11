@@ -1,0 +1,528 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ECO_STICKERModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="EcoSticker">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="VCId" Type="nvarchar" MaxLength="50" />
+          <Property Name="CarId" Type="nvarchar" MaxLength="50" />
+          <Property Name="Brand" Type="nvarchar" MaxLength="50" />
+          <Property Name="VINNO" Type="nvarchar" MaxLength="50" />
+          <Property Name="Model" Type="nvarchar" MaxLength="50" />
+          <Property Name="Grade" Type="nvarchar" MaxLength="50" />
+          <Property Name="CompanyInfo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Img_Thumnail" Type="nvarchar" MaxLength="50" />
+          <Property Name="Img_Picture" Type="nvarchar" MaxLength="50" />
+          <Property Name="Stk_Picture" Type="nvarchar" MaxLength="50" />
+          <Property Name="Stk_Pdf" Type="nvarchar" MaxLength="50" />
+          <Property Name="Privatekey" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="CreateBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifyDate" Type="datetime" />
+          <Property Name="ModifyBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Log_Print">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="VCId" Type="nvarchar" MaxLength="50" />
+          <Property Name="PrinterName" Type="nvarchar" MaxLength="50" />
+          <Property Name="PrintBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="VINNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="ConfirmBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="PrintDate" Type="datetime" />
+          <Property Name="Remark" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Mapping_RoleUser">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Master_Printer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="ModifyBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifyDate" Type="datetime" />
+          <Property Name="isDefault" Type="bit" />
+        </EntityType>
+        <EntityType Name="Master_Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="ModifyBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifyDate" Type="date" />
+        </EntityType>
+        <EntityType Name="Master_User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+          <Property Name="ConfirmKey" Type="nvarchar" MaxLength="4" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="MidifyBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifyDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Master_VC">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="VCNO" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Master_VINNO">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="VCId" Type="nvarchar" MaxLength="50" />
+          <Property Name="VINNO" Type="nvarchar" MaxLength="50" />
+          <Property Name="PrintCount" Type="int" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="StickerRef" Type="nvarchar" MaxLength="600" />
+          <Property Name="StorageMethod" Type="nvarchar(max)" />
+          <Property Name="CreateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Sys_Config">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Value" Type="nvarchar" MaxLength="2000" />
+          <Property Name="IsSystem" Type="bit" />
+          <Property Name="Description" Type="nvarchar" MaxLength="2000" />
+        </EntityType>
+        <EntityType Name="Sys_FileAttach">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="RefId" Type="nvarchar" MaxLength="50" />
+          <Property Name="FileData" Type="text" />
+          <Property Name="FileDescription" Type="nvarchar(max)" />
+          <Property Name="FileName" Type="nvarchar(max)" />
+          <Property Name="IsTemp" Type="bit" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="ModifyBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModifyDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Transaction_Log">
+          <Key>
+            <PropertyRef Name="LogId" />
+          </Key>
+          <Property Name="LogId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FileProcessName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="XMLContent" Type="nvarchar(max)" />
+          <Property Name="ProcessDate" Type="datetime" Nullable="false" />
+          <Property Name="ConsoleMsg" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+        </EntityType>
+        <Function Name="SP_getTransaction_Log" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="rVIN" Type="varchar" Mode="In" />
+          <Parameter Name="rDateFrom" Type="varchar" Mode="In" />
+          <Parameter Name="rDateTo" Type="varchar" Mode="In" />
+          <Parameter Name="rStatus" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="ECO_STICKERModelStoreContainer">
+          <EntitySet Name="EcoSticker" EntityType="Self.EcoSticker" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Log_Print" EntityType="Self.Log_Print" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mapping_RoleUser" EntityType="Self.Mapping_RoleUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Master_Printer" EntityType="Self.Master_Printer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Master_Role" EntityType="Self.Master_Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Master_User" EntityType="Self.Master_User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Master_VC" EntityType="Self.Master_VC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Master_VINNO" EntityType="Self.Master_VINNO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sys_Config" EntityType="Self.Sys_Config" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sys_FileAttach" EntityType="Self.Sys_FileAttach" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Transaction_Log" EntityType="Self.Transaction_Log" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ECO_STICKERModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="EcoSticker">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="VCId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CarId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VINNO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Grade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyInfo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Img_Thumnail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Img_Picture" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Stk_Picture" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Stk_Pdf" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Privatekey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifyBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Log_Print">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="VCId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PrinterName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PrintBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VINNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ConfirmBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PrintDate" Type="DateTime" Precision="3" />
+          <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Mapping_RoleUser">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RoleId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Master_Printer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifyBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <Property Name="isDefault" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Master_Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifyBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Master_User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ConfirmKey" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="MidifyBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Master_VC">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="VCNO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Master_VINNO">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="VCId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VINNO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PrintCount" Type="Int32" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StickerRef" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+          <Property Name="StorageMethod" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Sys_Config">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Value" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="IsSystem" Type="Boolean" />
+          <Property Name="Description" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Sys_FileAttach">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RefId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FileData" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FileDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsTemp" Type="Boolean" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifyBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Transaction_Log">
+          <Key>
+            <PropertyRef Name="LogId" />
+          </Key>
+          <Property Name="LogId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FileProcessName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="XMLContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProcessDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ConsoleMsg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="ECO_STICKEREntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="EcoStickers" EntityType="Self.EcoSticker" />
+          <EntitySet Name="Log_Print" EntityType="Self.Log_Print" />
+          <EntitySet Name="Mapping_RoleUser" EntityType="Self.Mapping_RoleUser" />
+          <EntitySet Name="Master_Printer" EntityType="Self.Master_Printer" />
+          <EntitySet Name="Master_Role" EntityType="Self.Master_Role" />
+          <EntitySet Name="Master_User" EntityType="Self.Master_User" />
+          <EntitySet Name="Master_VC" EntityType="Self.Master_VC" />
+          <EntitySet Name="Master_VINNO" EntityType="Self.Master_VINNO" />
+          <EntitySet Name="Sys_Config" EntityType="Self.Sys_Config" />
+          <EntitySet Name="Sys_FileAttach" EntityType="Self.Sys_FileAttach" />
+          <EntitySet Name="Transaction_Log" EntityType="Self.Transaction_Log" />
+          <FunctionImport Name="SP_getTransaction_Log" EntitySet="Transaction_Log" ReturnType="Collection(ECO_STICKERModel.Transaction_Log)">
+            <Parameter Name="rVIN" Mode="In" Type="String" />
+            <Parameter Name="rDateFrom" Mode="In" Type="String" />
+            <Parameter Name="rDateTo" Mode="In" Type="String" />
+            <Parameter Name="rStatus" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ECO_STICKERModelStoreContainer" CdmEntityContainer="ECO_STICKEREntities">
+          <EntitySetMapping Name="EcoStickers">
+            <EntityTypeMapping TypeName="ECO_STICKERModel.EcoSticker">
+              <MappingFragment StoreEntitySet="EcoSticker">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="VCId" ColumnName="VCId" />
+                <ScalarProperty Name="CarId" ColumnName="CarId" />
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+                <ScalarProperty Name="VINNO" ColumnName="VINNO" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+                <ScalarProperty Name="CompanyInfo" ColumnName="CompanyInfo" />
+                <ScalarProperty Name="Img_Thumnail" ColumnName="Img_Thumnail" />
+                <ScalarProperty Name="Img_Picture" ColumnName="Img_Picture" />
+                <ScalarProperty Name="Stk_Picture" ColumnName="Stk_Picture" />
+                <ScalarProperty Name="Stk_Pdf" ColumnName="Stk_Pdf" />
+                <ScalarProperty Name="Privatekey" ColumnName="Privatekey" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Log_Print">
+            <EntityTypeMapping TypeName="ECO_STICKERModel.Log_Print">
+              <MappingFragment StoreEntitySet="Log_Print">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="VCId" ColumnName="VCId" />
+                <ScalarProperty Name="PrinterName" ColumnName="PrinterName" />
+                <ScalarProperty Name="PrintBy" ColumnName="PrintBy" />
+                <ScalarProperty Name="VINNo" ColumnName="VINNo" />
+                <ScalarProperty Name="ConfirmBy" ColumnName="ConfirmBy" />
+                <ScalarProperty Name="PrintDate" ColumnName="PrintDate" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mapping_RoleUser">
+            <EntityTypeMapping TypeName="ECO_STICKERModel.Mapping_RoleUser">
+              <MappingFragment StoreEntitySet="Mapping_RoleUser">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Master_Printer">
+            <EntityTypeMapping TypeName="ECO_STICKERModel.Master_Printer">
+              <MappingFragment StoreEntitySet="Master_Printer">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="isDefault" ColumnName="isDefault" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Master_Role">
+            <EntityTypeMapping TypeName="ECO_STICKERModel.Master_Role">
+              <MappingFragment StoreEntitySet="Master_Role">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Master_User">
+            <EntityTypeMapping TypeName="ECO_STICKERModel.Master_User">
+              <MappingFragment StoreEntitySet="Master_User">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="ConfirmKey" ColumnName="ConfirmKey" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="MidifyBy" ColumnName="MidifyBy" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Master_VC">
+            <EntityTypeMapping TypeName="ECO_STICKERModel.Master_VC">
+              <MappingFragment StoreEntitySet="Master_VC">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="VCNO" ColumnName="VCNO" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Master_VINNO">
+            <EntityTypeMapping TypeName="ECO_STICKERModel.Master_VINNO">
+              <MappingFragment StoreEntitySet="Master_VINNO">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="VCId" ColumnName="VCId" />
+                <ScalarProperty Name="VINNO" ColumnName="VINNO" />
+                <ScalarProperty Name="PrintCount" ColumnName="PrintCount" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="StickerRef" ColumnName="StickerRef" />
+                <ScalarProperty Name="StorageMethod" ColumnName="StorageMethod" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_Config">
+            <EntityTypeMapping TypeName="ECO_STICKERModel.Sys_Config">
+              <MappingFragment StoreEntitySet="Sys_Config">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="IsSystem" ColumnName="IsSystem" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_FileAttach">
+            <EntityTypeMapping TypeName="ECO_STICKERModel.Sys_FileAttach">
+              <MappingFragment StoreEntitySet="Sys_FileAttach">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RefId" ColumnName="RefId" />
+                <ScalarProperty Name="FileData" ColumnName="FileData" />
+                <ScalarProperty Name="FileDescription" ColumnName="FileDescription" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="IsTemp" ColumnName="IsTemp" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transaction_Log">
+            <EntityTypeMapping TypeName="ECO_STICKERModel.Transaction_Log">
+              <MappingFragment StoreEntitySet="Transaction_Log">
+                <ScalarProperty Name="LogId" ColumnName="LogId" />
+                <ScalarProperty Name="FileProcessName" ColumnName="FileProcessName" />
+                <ScalarProperty Name="XMLContent" ColumnName="XMLContent" />
+                <ScalarProperty Name="ProcessDate" ColumnName="ProcessDate" />
+                <ScalarProperty Name="ConsoleMsg" ColumnName="ConsoleMsg" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_getTransaction_Log" FunctionName="ECO_STICKERModel.Store.SP_getTransaction_Log" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

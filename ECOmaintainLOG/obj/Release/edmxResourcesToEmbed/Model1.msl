@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ECO_STICKERModelStoreContainer" CdmEntityContainer="ECO_STICKEREntities">
+    <EntitySetMapping Name="EcoStickers">
+      <EntityTypeMapping TypeName="ECO_STICKERModel.EcoSticker">
+        <MappingFragment StoreEntitySet="EcoSticker">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="VCId" ColumnName="VCId" />
+          <ScalarProperty Name="CarId" ColumnName="CarId" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="VINNO" ColumnName="VINNO" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="CompanyInfo" ColumnName="CompanyInfo" />
+          <ScalarProperty Name="Img_Thumnail" ColumnName="Img_Thumnail" />
+          <ScalarProperty Name="Img_Picture" ColumnName="Img_Picture" />
+          <ScalarProperty Name="Stk_Picture" ColumnName="Stk_Picture" />
+          <ScalarProperty Name="Stk_Pdf" ColumnName="Stk_Pdf" />
+          <ScalarProperty Name="Privatekey" ColumnName="Privatekey" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+          <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Log_Print">
+      <EntityTypeMapping TypeName="ECO_STICKERModel.Log_Print">
+        <MappingFragment StoreEntitySet="Log_Print">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="VCId" ColumnName="VCId" />
+          <ScalarProperty Name="PrinterName" ColumnName="PrinterName" />
+          <ScalarProperty Name="PrintBy" ColumnName="PrintBy" />
+          <ScalarProperty Name="VINNo" ColumnName="VINNo" />
+          <ScalarProperty Name="ConfirmBy" ColumnName="ConfirmBy" />
+          <ScalarProperty Name="PrintDate" ColumnName="PrintDate" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mapping_RoleUser">
+      <EntityTypeMapping TypeName="ECO_STICKERModel.Mapping_RoleUser">
+        <MappingFragment StoreEntitySet="Mapping_RoleUser">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Master_Printer">
+      <EntityTypeMapping TypeName="ECO_STICKERModel.Master_Printer">
+        <MappingFragment StoreEntitySet="Master_Printer">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+          <ScalarProperty Name="isDefault" ColumnName="isDefault" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Master_Role">
+      <EntityTypeMapping TypeName="ECO_STICKERModel.Master_Role">
+        <MappingFragment StoreEntitySet="Master_Role">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Master_User">
+      <EntityTypeMapping TypeName="ECO_STICKERModel.Master_User">
+        <MappingFragment StoreEntitySet="Master_User">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="ConfirmKey" ColumnName="ConfirmKey" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="MidifyBy" ColumnName="MidifyBy" />
+          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Master_VC">
+      <EntityTypeMapping TypeName="ECO_STICKERModel.Master_VC">
+        <MappingFragment StoreEntitySet="Master_VC">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="VCNO" ColumnName="VCNO" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Master_VINNO">
+      <EntityTypeMapping TypeName="ECO_STICKERModel.Master_VINNO">
+        <MappingFragment StoreEntitySet="Master_VINNO">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="VCId" ColumnName="VCId" />
+          <ScalarProperty Name="VINNO" ColumnName="VINNO" />
+          <ScalarProperty Name="PrintCount" ColumnName="PrintCount" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="StickerRef" ColumnName="StickerRef" />
+          <ScalarProperty Name="StorageMethod" ColumnName="StorageMethod" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sys_Config">
+      <EntityTypeMapping TypeName="ECO_STICKERModel.Sys_Config">
+        <MappingFragment StoreEntitySet="Sys_Config">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="IsSystem" ColumnName="IsSystem" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sys_FileAttach">
+      <EntityTypeMapping TypeName="ECO_STICKERModel.Sys_FileAttach">
+        <MappingFragment StoreEntitySet="Sys_FileAttach">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RefId" ColumnName="RefId" />
+          <ScalarProperty Name="FileData" ColumnName="FileData" />
+          <ScalarProperty Name="FileDescription" ColumnName="FileDescription" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="IsTemp" ColumnName="IsTemp" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transaction_Log">
+      <EntityTypeMapping TypeName="ECO_STICKERModel.Transaction_Log">
+        <MappingFragment StoreEntitySet="Transaction_Log">
+          <ScalarProperty Name="LogId" ColumnName="LogId" />
+          <ScalarProperty Name="FileProcessName" ColumnName="FileProcessName" />
+          <ScalarProperty Name="XMLContent" ColumnName="XMLContent" />
+          <ScalarProperty Name="ProcessDate" ColumnName="ProcessDate" />
+          <ScalarProperty Name="ConsoleMsg" ColumnName="ConsoleMsg" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_getTransaction_Log" FunctionName="ECO_STICKERModel.Store.SP_getTransaction_Log" />
+  </EntityContainerMapping>
+</Mapping>

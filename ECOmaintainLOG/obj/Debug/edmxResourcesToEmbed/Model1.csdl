@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ECO_STICKERModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="EcoSticker">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="VCId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CarId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VINNO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Grade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyInfo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Img_Thumnail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Img_Picture" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Stk_Picture" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Stk_Pdf" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Privatekey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifyBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Log_Print">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="VCId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PrinterName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PrintBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VINNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ConfirmBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PrintDate" Type="DateTime" Precision="3" />
+    <Property Name="Remark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Mapping_RoleUser">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RoleId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Master_Printer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifyBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="isDefault" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Master_Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifyBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="Master_User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ConfirmKey" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="MidifyBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Master_VC">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="VCNO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Master_VINNO">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="VCId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VINNO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PrintCount" Type="Int32" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="StickerRef" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+    <Property Name="StorageMethod" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Sys_Config">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Value" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="IsSystem" Type="Boolean" />
+    <Property Name="Description" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Sys_FileAttach">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RefId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FileData" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="FileDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsTemp" Type="Boolean" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifyBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Transaction_Log">
+    <Key>
+      <PropertyRef Name="LogId" />
+    </Key>
+    <Property Name="LogId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FileProcessName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="XMLContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProcessDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ConsoleMsg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityContainer Name="ECO_STICKEREntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="EcoStickers" EntityType="Self.EcoSticker" />
+    <EntitySet Name="Log_Print" EntityType="Self.Log_Print" />
+    <EntitySet Name="Mapping_RoleUser" EntityType="Self.Mapping_RoleUser" />
+    <EntitySet Name="Master_Printer" EntityType="Self.Master_Printer" />
+    <EntitySet Name="Master_Role" EntityType="Self.Master_Role" />
+    <EntitySet Name="Master_User" EntityType="Self.Master_User" />
+    <EntitySet Name="Master_VC" EntityType="Self.Master_VC" />
+    <EntitySet Name="Master_VINNO" EntityType="Self.Master_VINNO" />
+    <EntitySet Name="Sys_Config" EntityType="Self.Sys_Config" />
+    <EntitySet Name="Sys_FileAttach" EntityType="Self.Sys_FileAttach" />
+    <EntitySet Name="Transaction_Log" EntityType="Self.Transaction_Log" />
+    <FunctionImport Name="SP_getTransaction_Log" EntitySet="Transaction_Log" ReturnType="Collection(ECO_STICKERModel.Transaction_Log)">
+      <Parameter Name="rVIN" Mode="In" Type="String" />
+      <Parameter Name="rDateFrom" Mode="In" Type="String" />
+      <Parameter Name="rDateTo" Mode="In" Type="String" />
+      <Parameter Name="rStatus" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+</Schema>
