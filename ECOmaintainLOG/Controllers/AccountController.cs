@@ -51,7 +51,7 @@ namespace ECOmaintainLOG.Controllers
                     Password = "123456"
                 };
 
-                var user = await UserManager.FindAsync(model.UserName, model.Password);
+                //var user = await UserManager.FindAsync(model.UserName, model.Password);
                 if (model.UserName == "admin" && model.Password == "123456" )
                 {
 
