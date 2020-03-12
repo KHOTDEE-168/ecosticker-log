@@ -16,7 +16,7 @@
 
 
 <blockquote>
-@using (Html.BeginForm("Index","Home",FormMethod.Get))
+@using (Html.BeginForm("Index","Home",FormMethod.Post))
 {
         <div class="row">
             <div class="col-md-6">
@@ -112,7 +112,7 @@
                 <div class="form-group">
                     <div class="input-group">
                         <div class="text-right">
-                            <button class="btn btn-sm btn-default" type="reset" >Clear</button>
+                            <button class="btn btn-sm btn-default" onclick="refreshPage()" type="button">Clear</button>
 
                             <button class="btn btn-success"> Search </button>
 
@@ -230,6 +230,16 @@
         $('#titleResult').text(name);
         //console.log("#" + id);
 
+    }
+
+    function refreshPage() {
+
+
+
+        $('#vin').val('');
+        $('#status').val('');
+        $('#PcDateS').val('');
+        $('#PcDateE').val('');
     }
 
 </script>
